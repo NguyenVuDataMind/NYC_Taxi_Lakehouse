@@ -1,0 +1,51 @@
+[2025-08-02T21:59:02.360+0000] {processor.py:157} INFO - Started process (PID=183) to work on /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T21:59:02.373+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/nyc_weather_etl.py for tasks to queue
+[2025-08-02T21:59:02.384+0000] {logging_mixin.py:151} INFO - [2025-08-02T21:59:02.383+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T21:59:04.629+0000] {processor.py:839} INFO - DAG(s) dict_keys(['nyc_weather_etl']) retrieved from /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T21:59:05.466+0000] {logging_mixin.py:151} INFO - [2025-08-02T21:59:05.462+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:nyc_weather_etl' as access control is unset.
+[2025-08-02T21:59:05.467+0000] {logging_mixin.py:151} INFO - [2025-08-02T21:59:05.466+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-08-02T21:59:05.518+0000] {logging_mixin.py:151} INFO - [2025-08-02T21:59:05.517+0000] {dag.py:3696} INFO - Setting next_dagrun for nyc_weather_etl to 2025-08-02T20:59:05.517225+00:00, run_after=2025-08-02T21:59:05.517225+00:00
+[2025-08-02T21:59:05.604+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/nyc_weather_etl.py took 3.273 seconds
+[2025-08-02T23:56:58.796+0000] {processor.py:157} INFO - Started process (PID=191) to work on /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T23:56:58.801+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/nyc_weather_etl.py for tasks to queue
+[2025-08-02T23:56:58.809+0000] {logging_mixin.py:151} INFO - [2025-08-02T23:56:58.808+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T23:57:00.026+0000] {processor.py:839} INFO - DAG(s) dict_keys(['nyc_weather_etl']) retrieved from /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T23:57:00.561+0000] {logging_mixin.py:151} INFO - [2025-08-02T23:57:00.558+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:nyc_weather_etl' as access control is unset.
+[2025-08-02T23:57:00.563+0000] {logging_mixin.py:151} INFO - [2025-08-02T23:57:00.562+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-08-02T23:57:00.584+0000] {logging_mixin.py:151} INFO - [2025-08-02T23:57:00.583+0000] {dag.py:3696} INFO - Setting next_dagrun for nyc_weather_etl to 2025-08-02T22:57:00.583586+00:00, run_after=2025-08-02T23:57:00.583586+00:00
+[2025-08-02T23:57:00.615+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/nyc_weather_etl.py took 1.823 seconds
+[2025-08-02T23:57:31.258+0000] {processor.py:157} INFO - Started process (PID=226) to work on /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T23:57:31.262+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/nyc_weather_etl.py for tasks to queue
+[2025-08-02T23:57:31.265+0000] {logging_mixin.py:151} INFO - [2025-08-02T23:57:31.265+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T23:57:31.505+0000] {processor.py:839} INFO - DAG(s) dict_keys(['nyc_weather_etl']) retrieved from /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T23:57:31.531+0000] {logging_mixin.py:151} INFO - [2025-08-02T23:57:31.531+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-08-02T23:57:31.549+0000] {logging_mixin.py:151} INFO - [2025-08-02T23:57:31.548+0000] {dag.py:3696} INFO - Setting next_dagrun for nyc_weather_etl to 2025-08-02T22:57:31.548824+00:00, run_after=2025-08-02T23:57:31.548824+00:00
+[2025-08-02T23:57:31.562+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/nyc_weather_etl.py took 0.307 seconds
+[2025-08-02T23:58:02.039+0000] {processor.py:157} INFO - Started process (PID=261) to work on /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T23:58:02.039+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/nyc_weather_etl.py for tasks to queue
+[2025-08-02T23:58:02.043+0000] {logging_mixin.py:151} INFO - [2025-08-02T23:58:02.043+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T23:58:02.232+0000] {processor.py:839} INFO - DAG(s) dict_keys(['nyc_weather_etl']) retrieved from /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T23:58:02.374+0000] {logging_mixin.py:151} INFO - [2025-08-02T23:58:02.373+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-08-02T23:58:02.383+0000] {logging_mixin.py:151} INFO - [2025-08-02T23:58:02.383+0000] {dag.py:3696} INFO - Setting next_dagrun for nyc_weather_etl to 2025-08-02T22:58:02.383075+00:00, run_after=2025-08-02T23:58:02.383075+00:00
+[2025-08-02T23:58:02.392+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/nyc_weather_etl.py took 0.365 seconds
+[2025-08-02T23:58:32.720+0000] {processor.py:157} INFO - Started process (PID=296) to work on /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T23:58:32.721+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/nyc_weather_etl.py for tasks to queue
+[2025-08-02T23:58:32.723+0000] {logging_mixin.py:151} INFO - [2025-08-02T23:58:32.723+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T23:58:32.909+0000] {processor.py:839} INFO - DAG(s) dict_keys(['nyc_weather_etl']) retrieved from /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T23:58:32.926+0000] {logging_mixin.py:151} INFO - [2025-08-02T23:58:32.925+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-08-02T23:58:32.940+0000] {logging_mixin.py:151} INFO - [2025-08-02T23:58:32.940+0000] {dag.py:3696} INFO - Setting next_dagrun for nyc_weather_etl to 2025-08-02T22:58:32.940128+00:00, run_after=2025-08-02T23:58:32.940128+00:00
+[2025-08-02T23:58:33.066+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/nyc_weather_etl.py took 0.349 seconds
+[2025-08-02T23:59:03.394+0000] {processor.py:157} INFO - Started process (PID=330) to work on /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T23:59:03.400+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/nyc_weather_etl.py for tasks to queue
+[2025-08-02T23:59:03.406+0000] {logging_mixin.py:151} INFO - [2025-08-02T23:59:03.406+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T23:59:03.570+0000] {processor.py:839} INFO - DAG(s) dict_keys(['nyc_weather_etl']) retrieved from /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T23:59:03.713+0000] {logging_mixin.py:151} INFO - [2025-08-02T23:59:03.712+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-08-02T23:59:03.729+0000] {logging_mixin.py:151} INFO - [2025-08-02T23:59:03.729+0000] {dag.py:3696} INFO - Setting next_dagrun for nyc_weather_etl to 2025-08-02T22:59:03.728957+00:00, run_after=2025-08-02T23:59:03.728957+00:00
+[2025-08-02T23:59:03.741+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/nyc_weather_etl.py took 0.350 seconds
+[2025-08-02T23:59:34.061+0000] {processor.py:157} INFO - Started process (PID=365) to work on /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T23:59:34.062+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/nyc_weather_etl.py for tasks to queue
+[2025-08-02T23:59:34.065+0000] {logging_mixin.py:151} INFO - [2025-08-02T23:59:34.064+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T23:59:34.362+0000] {processor.py:839} INFO - DAG(s) dict_keys(['nyc_weather_etl']) retrieved from /opt/airflow/dags/nyc_weather_etl.py
+[2025-08-02T23:59:34.380+0000] {logging_mixin.py:151} INFO - [2025-08-02T23:59:34.379+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-08-02T23:59:34.395+0000] {logging_mixin.py:151} INFO - [2025-08-02T23:59:34.395+0000] {dag.py:3696} INFO - Setting next_dagrun for nyc_weather_etl to 2025-08-02T22:59:34.395076+00:00, run_after=2025-08-02T23:59:34.395076+00:00
+[2025-08-02T23:59:34.404+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/nyc_weather_etl.py took 0.347 seconds

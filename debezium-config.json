@@ -1,0 +1,20 @@
+{
+    "name": "taxi-postgres-connector",
+    "config": {
+      "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+      "database.hostname": "postgres",
+      "database.port": "5432",
+      "database.user": "postgres",
+      "database.password": "postgres",
+      "database.dbname": "taxi_db",
+      "database.server.name": "taxi",
+      "table.include.list": "taxi.trips,taxi.payment_types,taxi.vendors",
+      "publication.name": "dbz_publication",
+      "slot.name": "debezium",
+      "plugin.name": "pgoutput",
+      "transforms": "route",
+      "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
+      "transforms.route.regex": "taxi\\.(.*)",
+      "transforms.route.replacement": "lakehouse.$1"
+    }
+  }

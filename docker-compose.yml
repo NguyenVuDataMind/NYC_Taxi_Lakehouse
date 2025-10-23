@@ -276,6 +276,18 @@ services:
           --role Admin \
           --email admin@example.com \
           --password airflow
+        # Tạo PostgreSQL connection
+        airflow connections add postgres_default \
+          --conn-type postgres \
+          --conn-host postgres \
+          --conn-schema taxi_db \
+          --conn-login postgres \
+          --conn-password postgres \
+          --conn-port 5432
+        # Tạo MinIO connection
+        airflow connections add minio_default \
+          --conn-type s3 \
+          --conn-extra '{"endpoint_url": "http://minio:9000", "aws_access_key_id": "admin", "aws_secret_access_key": "password"}'
     environment:
       <<: *airflow-common-env
       _AIRFLOW_DB_MIGRATE: 'true'
@@ -288,7 +300,7 @@ services:
 
   # Spark Master
   spark-master:
-    image: bitnami/spark:3.3.2
+    image: bitnami/spark:latest
     container_name: spark-master
     environment:
       - SPARK_MODE=master
@@ -304,7 +316,7 @@ services:
 
   # Spark Worker
   spark-worker:
-    image: bitnami/spark:3.3.2
+    image: bitnami/spark:latest
     container_name: spark-worker
     environment:
       - SPARK_MODE=worker

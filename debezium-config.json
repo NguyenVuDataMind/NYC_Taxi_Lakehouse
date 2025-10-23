@@ -8,6 +8,7 @@
       "database.password": "postgres",
       "database.dbname": "taxi_db",
       "database.server.name": "taxi",
+      "topic.prefix": "taxi",
       "table.include.list": "taxi.trips,taxi.payment_types,taxi.vendors",
       "publication.name": "dbz_publication",
       "slot.name": "debezium",
@@ -17,4 +18,4 @@
       "transforms.route.regex": "taxi\\.(.*)",
       "transforms.route.replacement": "lakehouse.$1"
     }
-  }
+}

@@ -8,7 +8,7 @@
     "zone_type": "neighborhood",
     "is_tourist_area": false,
     "is_business_district": true,
-    "created_at": "2025-08-03T07:25:21.017525"
+    "created_at": "2025-10-23T16:43:38.065126"
   },
   {
     "location_id": 4,
@@ -19,7 +19,7 @@
     "zone_type": "neighborhood",
     "is_tourist_area": true,
     "is_business_district": false,
-    "created_at": "2025-08-03T07:25:21.017528"
+    "created_at": "2025-10-23T16:43:38.065151"
   },
   {
     "location_id": 13,
@@ -30,7 +30,7 @@
     "zone_type": "neighborhood",
     "is_tourist_area": true,
     "is_business_district": false,
-    "created_at": "2025-08-03T07:25:21.017529"
+    "created_at": "2025-10-23T16:43:38.065153"
   },
   {
     "location_id": 48,
@@ -41,7 +41,7 @@
     "zone_type": "neighborhood",
     "is_tourist_area": false,
     "is_business_district": false,
-    "created_at": "2025-08-03T07:25:21.017530"
+    "created_at": "2025-10-23T16:43:38.065156"
   },
   {
     "location_id": 79,
@@ -52,7 +52,7 @@
     "zone_type": "neighborhood",
     "is_tourist_area": false,
     "is_business_district": false,
-    "created_at": "2025-08-03T07:25:21.017530"
+    "created_at": "2025-10-23T16:43:38.065158"
   },
   {
     "location_id": 87,
@@ -63,7 +63,7 @@
     "zone_type": "neighborhood",
     "is_tourist_area": false,
     "is_business_district": false,
-    "created_at": "2025-08-03T07:25:21.017531"
+    "created_at": "2025-10-23T16:43:38.065160"
   },
   {
     "location_id": 100,
@@ -74,7 +74,7 @@
     "zone_type": "neighborhood",
     "is_tourist_area": false,
     "is_business_district": false,
-    "created_at": "2025-08-03T07:25:21.017532"
+    "created_at": "2025-10-23T16:43:38.065162"
   },
   {
     "location_id": 132,
@@ -85,7 +85,7 @@
     "zone_type": "airport",
     "is_tourist_area": false,
     "is_business_district": false,
-    "created_at": "2025-08-03T07:25:21.017532"
+    "created_at": "2025-10-23T16:43:38.065165"
   },
   {
     "location_id": 138,
@@ -96,7 +96,7 @@
     "zone_type": "airport",
     "is_tourist_area": false,
     "is_business_district": false,
-    "created_at": "2025-08-03T07:25:21.017533"
+    "created_at": "2025-10-23T16:43:38.065167"
   },
   {
     "location_id": 161,
@@ -107,7 +107,7 @@
     "zone_type": "neighborhood",
     "is_tourist_area": false,
     "is_business_district": true,
-    "created_at": "2025-08-03T07:25:21.017534"
+    "created_at": "2025-10-23T16:43:38.065169"
   },
   {
     "location_id": 162,
@@ -118,7 +118,7 @@
     "zone_type": "neighborhood",
     "is_tourist_area": false,
     "is_business_district": true,
-    "created_at": "2025-08-03T07:25:21.017534"
+    "created_at": "2025-10-23T16:43:38.065171"
   },
   {
     "location_id": 186,
@@ -129,7 +129,7 @@
     "zone_type": "neighborhood",
     "is_tourist_area": true,
     "is_business_district": false,
-    "created_at": "2025-08-03T07:25:21.017535"
+    "created_at": "2025-10-23T16:43:38.065173"
   },
   {
     "location_id": 230,
@@ -140,7 +140,7 @@
     "zone_type": "neighborhood",
     "is_tourist_area": false,
     "is_business_district": false,
-    "created_at": "2025-08-03T07:25:21.017536"
+    "created_at": "2025-10-23T16:43:38.065175"
   },
   {
     "location_id": 237,
@@ -151,7 +151,7 @@
     "zone_type": "neighborhood",
     "is_tourist_area": true,
     "is_business_district": false,
-    "created_at": "2025-08-03T07:25:21.017536"
+    "created_at": "2025-10-23T16:43:38.065177"
   },
   {
     "location_id": 244,
@@ -162,7 +162,7 @@
     "zone_type": "neighborhood",
     "is_tourist_area": false,
     "is_business_district": false,
-    "created_at": "2025-08-03T07:25:21.017537"
+    "created_at": "2025-10-23T16:43:38.065184"
   },
   {
     "location_id": 263,
@@ -173,6 +173,6 @@
     "zone_type": "neighborhood",
     "is_tourist_area": false,
     "is_business_district": false,
-    "created_at": "2025-08-03T07:25:21.017537"
+    "created_at": "2025-10-23T16:43:38.065186"
   }
 ]

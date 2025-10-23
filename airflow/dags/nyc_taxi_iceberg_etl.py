@@ -137,9 +137,9 @@ def create_sample_data(output_path, last_date):
     
     data = {
         'VendorID': np.random.choice([1, 2], n_records),
-        'tpep_pickup_datetime': pd.date_range(start_date, end_date, periods=n_records),
+        'tpep_pickup_datetime': pd.date_range(start_date, end_date, periods=n_records).astype('datetime64[us]'),
         'tpep_dropoff_datetime': pd.date_range(start_date + timedelta(minutes=5), 
-                                             end_date + timedelta(minutes=30), periods=n_records),
+                                             end_date + timedelta(minutes=30), periods=n_records).astype('datetime64[us]'),
         'passenger_count': np.random.choice([1, 2, 3, 4, 5], n_records, p=[0.6, 0.2, 0.1, 0.07, 0.03]),
         'trip_distance': np.random.exponential(2.0, n_records),
         'RatecodeID': np.random.choice([1, 2, 3, 4, 5], n_records, p=[0.9, 0.03, 0.03, 0.02, 0.02]),
@@ -228,22 +228,22 @@ validate_data_task = PythonOperator(
 spark_etl_task = BashOperator(
     task_id='spark_process_to_iceberg',
     bash_command='''
-    docker exec spark-master spark-submit \
-        --master spark://spark-master:7077 \
-        --deploy-mode client \
-        --conf spark.sql.catalog.spark_catalog=org.apache.iceberg.spark.SparkSessionCatalog \
-        --conf spark.sql.catalog.spark_catalog.type=hive \
-        --conf spark.sql.catalog.iceberg=org.apache.iceberg.spark.SparkCatalog \
-        --conf spark.sql.catalog.iceberg.type=hadoop \
-        --conf spark.sql.catalog.iceberg.warehouse=s3a://lakehouse/warehouse \
-        --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions \
-        --conf spark.hadoop.fs.s3a.endpoint=http://minio:9000 \
-        --conf spark.hadoop.fs.s3a.access.key=admin \
-        --conf spark.hadoop.fs.s3a.secret.key=password \
-        --conf spark.hadoop.fs.s3a.path.style.access=true \
-        --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem \
-        --jars /opt/bitnami/spark/jars/iceberg-spark-runtime-3.5_2.12-1.4.2.jar,/opt/bitnami/spark/jars/aws-java-sdk-bundle-1.12.262.jar,/opt/bitnami/spark/jars/hadoop-aws-3.3.4.jar \
-        /opt/airflow/dags/spark_jobs/nyc_taxi_to_iceberg.py {{ task_instance.xcom_pull(task_ids='validate_data', key='validated_data_path') }}
+spark-submit \
+    --master spark://spark-master:7077 \
+    --deploy-mode client \
+    --conf spark.sql.catalog.spark_catalog=org.apache.iceberg.spark.SparkSessionCatalog \
+    --conf spark.sql.catalog.spark_catalog.type=hive \
+    --conf spark.sql.catalog.iceberg=org.apache.iceberg.spark.SparkCatalog \
+    --conf spark.sql.catalog.iceberg.type=hadoop \
+    --conf spark.sql.catalog.iceberg.warehouse=s3a://lakehouse/warehouse \
+    --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions \
+    --conf spark.hadoop.fs.s3a.endpoint=http://minio:9000 \
+    --conf spark.hadoop.fs.s3a.access.key=admin \
+    --conf spark.hadoop.fs.s3a.secret.key=password \
+    --conf spark.hadoop.fs.s3a.path.style.access=true \
+    --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem \
+    --jars /opt/bitnami/spark/jars/iceberg-spark-runtime-3.5_2.12-1.4.2.jar,/opt/bitnami/spark/jars/aws-java-sdk-bundle-1.12.262.jar,/opt/bitnami/spark/jars/hadoop-aws-3.3.4.jar \
+    /opt/airflow/dags/spark_jobs/nyc_taxi_to_iceberg.py {{ task_instance.xcom_pull(task_ids='validate_data', key='validated_data_path') }}
     ''',
     dag=dag,
 )

@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 import os
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
+from airflow.operators.bash import BashOperator
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 
 try:
@@ -184,46 +184,50 @@ create_location_task = PythonOperator(
 )
 
 # Spark job for processing weather data to Iceberg
-spark_weather_etl_task = SparkSubmitOperator(
+spark_weather_etl_task = BashOperator(
     task_id='spark_process_weather_to_iceberg',
-    application='/opt/airflow/dags/spark_jobs/weather_to_iceberg.py',
-    conn_id='spark_default',
-    conf={
-        'spark.sql.catalog.spark_catalog': 'org.apache.iceberg.spark.SparkSessionCatalog',
-        'spark.sql.catalog.spark_catalog.type': 'hive',
-        'spark.sql.catalog.iceberg': 'org.apache.iceberg.spark.SparkCatalog',
-        'spark.sql.catalog.iceberg.type': 'hadoop',
-        'spark.sql.catalog.iceberg.warehouse': 's3a://lakehouse/warehouse',
-        'spark.sql.extensions': 'org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions',
-        'spark.hadoop.fs.s3a.endpoint': 'http://minio:9000',
-        'spark.hadoop.fs.s3a.access.key': 'admin',
-        'spark.hadoop.fs.s3a.secret.key': 'password',
-        'spark.hadoop.fs.s3a.path.style.access': 'true',
-        'spark.hadoop.fs.s3a.impl': 'org.apache.hadoop.fs.s3a.S3AFileSystem',
-    },
-    jars='/opt/bitnami/spark/jars/iceberg-spark-runtime-3.5_2.12-1.4.2.jar,/opt/bitnami/spark/jars/aws-java-sdk-bundle-1.12.262.jar,/opt/bitnami/spark/jars/hadoop-aws-3.3.4.jar',
+    bash_command='''
+spark-submit \
+    --master spark://spark-master:7077 \
+    --deploy-mode client \
+    --conf spark.sql.catalog.spark_catalog=org.apache.iceberg.spark.SparkSessionCatalog \
+    --conf spark.sql.catalog.spark_catalog.type=hive \
+    --conf spark.sql.catalog.iceberg=org.apache.iceberg.spark.SparkCatalog \
+    --conf spark.sql.catalog.iceberg.type=hadoop \
+    --conf spark.sql.catalog.iceberg.warehouse=s3a://lakehouse/warehouse \
+    --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions \
+    --conf spark.hadoop.fs.s3a.endpoint=http://minio:9000 \
+    --conf spark.hadoop.fs.s3a.access.key=admin \
+    --conf spark.hadoop.fs.s3a.secret.key=password \
+    --conf spark.hadoop.fs.s3a.path.style.access=true \
+    --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem \
+    --jars /opt/bitnami/spark/jars/iceberg-spark-runtime-3.5_2.12-1.4.2.jar,/opt/bitnami/spark/jars/aws-java-sdk-bundle-1.12.262.jar,/opt/bitnami/spark/jars/hadoop-aws-3.3.4.jar \
+    /opt/airflow/dags/spark_jobs/weather_to_iceberg.py {{ task_instance.xcom_pull(task_ids='validate_weather_data', key='validated_weather_path') }}
+    ''',
     dag=dag,
 )
 
 # Spark job for processing location data to Iceberg
-spark_location_etl_task = SparkSubmitOperator(
+spark_location_etl_task = BashOperator(
     task_id='spark_process_location_to_iceberg',
-    application='/opt/airflow/dags/spark_jobs/location_to_iceberg.py',
-    conn_id='spark_default',
-    conf={
-        'spark.sql.catalog.spark_catalog': 'org.apache.iceberg.spark.SparkSessionCatalog',
-        'spark.sql.catalog.spark_catalog.type': 'hive',
-        'spark.sql.catalog.iceberg': 'org.apache.iceberg.spark.SparkCatalog',
-        'spark.sql.catalog.iceberg.type': 'hadoop',
-        'spark.sql.catalog.iceberg.warehouse': 's3a://lakehouse/warehouse',
-        'spark.sql.extensions': 'org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions',
-        'spark.hadoop.fs.s3a.endpoint': 'http://minio:9000',
-        'spark.hadoop.fs.s3a.access.key': 'admin',
-        'spark.hadoop.fs.s3a.secret.key': 'password',
-        'spark.hadoop.fs.s3a.path.style.access': 'true',
-        'spark.hadoop.fs.s3a.impl': 'org.apache.hadoop.fs.s3a.S3AFileSystem',
-    },
-    jars='/opt/bitnami/spark/jars/iceberg-spark-runtime-3.5_2.12-1.4.2.jar,/opt/bitnami/spark/jars/aws-java-sdk-bundle-1.12.262.jar,/opt/bitnami/spark/jars/hadoop-aws-3.3.4.jar',
+    bash_command='''
+spark-submit \
+    --master spark://spark-master:7077 \
+    --deploy-mode client \
+    --conf spark.sql.catalog.spark_catalog=org.apache.iceberg.spark.SparkSessionCatalog \
+    --conf spark.sql.catalog.spark_catalog.type=hive \
+    --conf spark.sql.catalog.iceberg=org.apache.iceberg.spark.SparkCatalog \
+    --conf spark.sql.catalog.iceberg.type=hadoop \
+    --conf spark.sql.catalog.iceberg.warehouse=s3a://lakehouse/warehouse \
+    --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions \
+    --conf spark.hadoop.fs.s3a.endpoint=http://minio:9000 \
+    --conf spark.hadoop.fs.s3a.access.key=admin \
+    --conf spark.hadoop.fs.s3a.secret.key=password \
+    --conf spark.hadoop.fs.s3a.path.style.access=true \
+    --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem \
+    --jars /opt/bitnami/spark/jars/iceberg-spark-runtime-3.5_2.12-1.4.2.jar,/opt/bitnami/spark/jars/aws-java-sdk-bundle-1.12.262.jar,/opt/bitnami/spark/jars/hadoop-aws-3.3.4.jar \
+    /opt/airflow/dags/spark_jobs/location_to_iceberg.py {{ task_instance.xcom_pull(task_ids='create_location_data', key='location_data_path') }}
+    ''',
     dag=dag,
 )
 

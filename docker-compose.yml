@@ -231,6 +231,7 @@ services:
         condition: service_completed_successfully
     volumes:
       - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/dags/spark_jobs:/opt/airflow/dags/spark_jobs
       - ./airflow/logs:/opt/airflow/logs
       - ./airflow/config:/opt/airflow/config
       - ./airflow/plugins:/opt/airflow/plugins
@@ -253,6 +254,7 @@ services:
         condition: service_completed_successfully
     volumes:
       - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/dags/spark_jobs:/opt/airflow/dags/spark_jobs
       - ./airflow/logs:/opt/airflow/logs
       - ./airflow/config:/opt/airflow/config
       - ./airflow/plugins:/opt/airflow/plugins

@@ -1,6 +1,8 @@
 # Airflow logs
 airflow/logs/
 airflow/__pycache__/
+airflow/dags/__pycache__/
+airflow/dags/*/__pycache__/
 
 # Python cache
 __pycache__/
@@ -8,6 +10,8 @@ __pycache__/
 *.pyo
 *.pyd
 .Python
+*.py[cod]
+*$py.class
 
 # Serving layer cache
 serving/__pycache__/
@@ -31,3 +35,27 @@ Thumbs.db
 postgres_data/
 minio_data/
 redis_data/
+
+# Data files (temporary and generated)
+data/raw/*.parquet
+data/raw/*.json
+data/weather/*.json
+data/locations/*.json
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.out
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# pytest cache
+.pytest_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
